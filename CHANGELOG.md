@@ -1,4 +1,6 @@
 **node-red-contrib-alexa-remote2-applestrudel**
+- **5.0.25**
+  - Set User-Agent for better server side tracking
 - **5.0.23**
   - Prevent excessive polling and setting of device states
   - Updates dependency alexa-remote2 to v5.10.0
