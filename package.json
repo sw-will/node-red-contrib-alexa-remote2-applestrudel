@@ -9,7 +9,12 @@
 		{
 			"name": "Julian Wiche",
 			"url": "https://github.com/dajuly20"
-		}
+		},
+		{
+			"name": "Murilo",
+			"url": "https://github.com/ninjampa"
+		},
+
 	],
 	"description": "node-red nodes for interacting with alexa",
 	"keywords": [
