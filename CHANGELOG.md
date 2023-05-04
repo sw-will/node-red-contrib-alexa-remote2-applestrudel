@@ -1,4 +1,8 @@
 **node-red-contrib-alexa-remote2-applestrudel**
+- **5.0.27**
+  - Restart/Crash fix by @dajuly20
+- **5.0.26**
+  - Update dependency alexa-remote2 to v5.10.1
 - **5.0.25**
   - Set User-Agent for better server side tracking
 - **5.0.23**
