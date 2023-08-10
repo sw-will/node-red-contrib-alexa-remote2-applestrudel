@@ -422,7 +422,7 @@ module.exports = function (RED) {
 			config.bluetooth = false;
 			config.setupProxy = false;
 			config.apiUserAgentPostfix = pjson.name + '/' + pjson.version;
-			config.usePushConnectType = this.usePushConnectType;
+			config.usePushConnectType = parseInt(this.usePushConnectType) || 1;
 
 			switch (this.authMethod) {
 				case 'proxy':

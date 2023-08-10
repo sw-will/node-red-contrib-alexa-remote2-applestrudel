@@ -1,5 +1,5 @@
 **node-red-contrib-alexa-remote2-applestrudel**
-- **5.0.33**
+- **5.0.34**
   - Set WSMQTT legacy connection type as default
   - Updates dependency alexa-remote2 to v5.10.3
 - **5.0.27**
