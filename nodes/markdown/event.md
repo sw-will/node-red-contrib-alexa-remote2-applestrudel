@@ -1,4 +1,4 @@
-Listens to WsMqtt events.
+Listens to Push events.
 Events must be enabled for this account.
 
 ---

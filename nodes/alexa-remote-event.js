@@ -22,7 +22,7 @@ module.exports = function (RED) {
 			this.account.alexa.addListener(this.event, this.onAlexaEvent);
 		};
 
-		if(!this.account.useWsMqtt) {
+		if(!this.account.usePushConnection) {
 			return this.status({ fill: "red", shape: "dot", text: "events not supported by account" });
 		}
 		else {
