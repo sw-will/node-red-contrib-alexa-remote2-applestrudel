@@ -304,7 +304,7 @@ module.exports = function (RED) {
 	function AlexaRemoteAccountNode(input) {
 		RED.nodes.createNode(this, input);
 
-		tools.assign(this, ['authMethod', 'proxyOwnIp', 'proxyPort', 'cookieFile', 'refreshInterval', 'alexaServiceHost', 'amazonPage', 'acceptLanguage', 'onKeywordInLanguage', 'userAgent'], input);
+		tools.assign(this, ['authMethod', 'proxyOwnIp', 'proxyPort', 'cookieFile', 'refreshInterval', 'alexaServiceHost', 'pushDispatchHost', 'amazonPage', 'acceptLanguage', 'onKeywordInLanguage', 'userAgent'], input);
 		this.usePushConnection = input.usePushConnection === 'on';
 		this.autoInit  = input.autoInit  === 'on';
 		this.name = input.name;
@@ -413,7 +413,7 @@ module.exports = function (RED) {
 			// this.initing = true;
 
 			let config = {};
-			tools.assign(config, ['proxyOwnIp', 'proxyPort', 'alexaServiceHost', 'amazonPage', 'acceptLanguage', 'onKeywordInLanguage', 'userAgent', 'usePushConnection'], this);
+			tools.assign(config, ['proxyOwnIp', 'proxyPort', 'alexaServiceHost', 'pushDispatchHost', 'amazonPage', 'acceptLanguage', 'onKeywordInLanguage', 'userAgent', 'usePushConnection'], this);
 			config.logger = this.debugCb;
 			config.refreshCookieInterval = 0;
 			config.proxyLogLevel = 'warn';

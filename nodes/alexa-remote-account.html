@@ -62,6 +62,10 @@
         <input type="text" id="node-config-input-alexaServiceHost" placeholder="Required">
     </div>
     <div class="form-row">
+        <label for="node-config-input-pushDispatchHost"><i class="fa fa-amazon"></i> Push Dispatch Host</label>
+        <input type="text" id="node-config-input-pushDispatchHost" placeholder="Optional">
+    </div>
+    <div class="form-row">
         <label for="node-config-input-amazonPage"><i class="fa fa-amazon"></i> Page</label>
         <input type="text" id="node-config-input-amazonPage" placeholder="Required">
     </div>
@@ -231,6 +235,7 @@
 			cookieFile:			 { required: false, value: ''},
 			refreshInterval:	 { required: false, value: '3'},
             alexaServiceHost:    { required: true,  value: 'pitangui.amazon.com' },
+			pushDispatchHost:    { required: false, value: '' },
 			amazonPage:          { required: true,  value: 'amazon.com' },
             acceptLanguage:      { required: false, value: 'en-US' },
             onKeywordInLanguage: { required: false, value: 'on' },
