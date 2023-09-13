@@ -1,4 +1,8 @@
 **node-red-contrib-alexa-remote2-applestrudel**
+- **5.0.42**
+  - Updates dependency alexa-remote2 to v6.1.2
+- **5.0.41**
+  - Add new option to allow setting of custom push dispatch url
 - **5.0.40**
   - Updates dependency alexa-remote2 to v6.0.1 to make use of new push connection mechanism
 - **5.0.34**
