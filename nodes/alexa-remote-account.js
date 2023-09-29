@@ -480,7 +480,7 @@ module.exports = function (RED) {
 				});
 			}
 
-			const cookieData = await alexa.initExt(config, proxyWaitCallback, this.warnCb).catch(error => {
+			const cookieData = await alexa.initExt(config, this.emitter, proxyWaitCallback, this.warnCb).catch(error => {
 				if(alexa !== this.alexa) return;
 				this.setState('ERROR', error && error.message);
 				throw error;

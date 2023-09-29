@@ -18,8 +18,10 @@ module.exports = function (RED) {
 			this.status({ fill: "yellow", shape: "dot", text: "starting listening" });
 			setTimeout(() => this.status({ fill: "grey", shape: "dot", text: "listening" }), 2000);
 
-			this.account.alexa.removeListener(this.event, this.onAlexaEvent);
-			this.account.alexa.addListener(this.event, this.onAlexaEvent);
+			//this.account.alexa.removeListener(this.event, this.onAlexaEvent);
+			//this.account.alexa.addListener(this.event, this.onAlexaEvent);
+			this.account.emitter.removeListener('new-alexa-event', this.onAlexaEvent );
+			this.account.emitter.addListener('new-alexa-event', this.onAlexaEvent );
 		};
 
 		if(!this.account.usePushConnection) {
@@ -36,6 +38,7 @@ module.exports = function (RED) {
 			this.account.emitter.removeListener('status', this.onStatus);
 			this.account.alexa.removeListener(this.event, this.onAlexaEvent);
 			this.account.emitter.removeListener('state', this.onStatus);
+			this.account.emitter.removeListener('new-alexa-event', this.onAlexaEvent );
 		});
 	}
 	RED.nodes.registerType("alexa-remote-event", AlexaRemoteEventNode);
