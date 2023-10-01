@@ -1,4 +1,6 @@
 **node-red-contrib-alexa-remote2-applestrudel**
+- **5.0.43**
+  - Double init fix by @DanPatten
 - **5.0.42**
   - Updates dependency alexa-remote2 to v6.1.2
 - **5.0.41**
