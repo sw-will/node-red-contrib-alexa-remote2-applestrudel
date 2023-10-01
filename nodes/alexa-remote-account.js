@@ -408,9 +408,11 @@ module.exports = function (RED) {
 		};
 
 		this.initAlexa = async function(input, ignoreFile = false) {
-			// we can hopefully do without this now by checking if this.alexa changes
-			// if(this.initing) throw new Error('Already initialising!');
-			// this.initing = true;
+			if(this.initing)  {
+				this.debugCb('Already initializing Alexa!');
+				return;
+			}
+			this.initing = true;
 
 			let config = {};
 			tools.assign(config, ['proxyOwnIp', 'proxyPort', 'alexaServiceHost', 'pushDispatchHost', 'amazonPage', 'acceptLanguage', 'onKeywordInLanguage', 'userAgent', 'usePushConnection'], this);
@@ -476,6 +478,7 @@ module.exports = function (RED) {
 				await tools.portAvailable(config.proxyPort).catch(error => {
 					if(error.code === 'EADDRINUSE') error.message = `port ${config.proxyPort} already in use`;
 					this.setState('ERROR', error.message);
+					this.initing = false;
 					throw error;
 				});
 			}
@@ -483,11 +486,13 @@ module.exports = function (RED) {
 			const cookieData = await alexa.initExt(config, proxyWaitCallback, this.warnCb).catch(error => {
 				if(alexa !== this.alexa) return;
 				this.setState('ERROR', error && error.message);
+				this.initing = false;
 				throw error;
 			});
 
 			// see above why
 			if(alexa !== this.alexa) {
+				this.initing = false;
 				throw new Error('Initialisation was aborted!');
 			}
 
@@ -506,11 +511,13 @@ module.exports = function (RED) {
 
 			// see above why
 			if(alexa !== this.alexa) {
+				this.initing = false;
 				throw new Error('Initialisation was aborted!');
 			}
 
 			this.setState('READY');
 			this.renewTimeout();
+			this.initing = false;
 			return cookieData;
 		};
 		this.refreshAlexa = async function() {
